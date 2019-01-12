@@ -7,7 +7,7 @@ After=network.target remote-fs.target nss-lookup.target
 [Service]
 Type=forking
 #pid文件位置 
-#要与nginx配置文件中的pid配置路径一致，这个很重要，否则会服务启动失败
+#要与php-fpm配置文件中的pid配置路径一致，这个很重要，否则会服务启动失败
 PIDFile=/usr/local/var/run/php-fpm.pid
 #启动
 ExecStart=/usr/local/sbin/php-fpm -y /usr/local/etc/php-fpm.conf
