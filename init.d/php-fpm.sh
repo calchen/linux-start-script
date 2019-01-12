@@ -5,7 +5,7 @@
 
 EXEC=/usr/local/sbin/php-fpm
 CONFIGFILE=/usr/local/etc/php-fpm.conf
-PIDFILE=/usr/local/var/run/$php-fpm.pid
+PIDFILE=/usr/local/var/run/php-fpm.pid
 
 case "$1" in
 start)
