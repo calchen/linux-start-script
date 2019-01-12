@@ -1,0 +1,22 @@
+#服务描述性的配置
+[Unit]
+Description=nginx - high performance web server
+Documentation=http://nginx.org/en/docs/
+After=network.target remote-fs.target nss-lookup.target
+#服务关键配置
+[Service]
+Type=forking
+#pid文件位置 
+#要与nginx配置文件中的pid配置路径一致，这个很重要，否则会服务启动失败
+PIDFile=/var/run/nginx.pid
+#启动前检测 nginx配置文件 是否正确
+ExecStartPre=/usr/sbin/nginx -t -c /etc/nginx/nginx.conf
+#启动
+ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf
+#重启
+ExecReload=/usr/sbin/nginx -s reload
+#关闭
+ExecStop=/usr/sbin/nginx -s quit
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target
